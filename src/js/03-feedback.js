@@ -27,13 +27,16 @@ function reloadPage() {
 
 function onFormSubmit(e) {
   e.preventDefault();
-  console.log({ email: email.value, message: message.value });
-
-  if (email.value === '' || message.value === '') {
+  
+  
+  if (email.value.trim() === '' || message.value.trim() === '') {
     return alert('Будь ласка заповніть всі поля!');
   }
+ 
+  console.log({ email: email.value.trim(), message: message.value.trim() });
 
   localStorage.removeItem(LOCAL_KEY);
   e.currentTarget.reset();
   dataForm = {};
 }
+
